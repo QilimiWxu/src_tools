@@ -7,12 +7,15 @@
 //buildroot/output/rockchip_rv1126_rv1109_facial_gate/host/arm-buildroot-linux-gnueabihf/sysroot/usr/include/json-c
 namespace qilimi{
 
-class XnConfigParam{
+class ConfigParam{
 private:
     json_object *pobj;
 
+    char file_name[256];
+
     static const char* tag;
     static const int tag_debug;
+    static const char* version;
 
     /**
      * @brief 告诉线程有数据修改了,需要进行数据同步
@@ -22,8 +25,8 @@ private:
     void put_change();
     
 public:
-    XnConfigParam();
-    ~XnConfigParam();
+    ConfigParam();
+    ~ConfigParam();
 
     /**
      * @brief 打开文件
